@@ -1,0 +1,52 @@
+---
+
+---
+<div class="links">
+    <h2 class="hide-element">Links</h2>
+    <a class="featured" href="/">Featured Link</a>
+    <a href="/">Yesterday Stories Link</a>
+    <a href="/">Redeem Cupom</a>
+</div>
+
+<style lang="scss">
+     @use '../styles/functions' as *;
+     @use '../styles/global' as *;
+
+    .links {
+        height: 400px;
+        // border: 1px solid red;
+        width: 100%;
+        padding: $base-padding;
+        display: grid;
+        grid-template-rows: auto;
+        gap: $base-padding;
+        
+        a {
+            display: flex;        
+            text-decoration: none;
+            color: $light;
+            background-color: $btn;
+            font-size: convert-pixels-to-rem(19px);
+            font-weight: 700;
+            justify-content: center;
+            align-items: center;
+            border-radius: convert-pixels-to-rem(10px);
+
+            &.featured {
+                background-color: $accent;
+            }
+        }
+    }
+
+    .hide-element {
+        border: 0;
+        clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+        clip: rect(1px, 1px, 1px, 1px);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px; 
+} 
+</style>
