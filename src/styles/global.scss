@@ -1,0 +1,48 @@
+@use 'functions' as *;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Passion+One:wght@400;700&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+:root {
+    /*Colors*/
+    --light: 218 44% 96%;
+    --light-alt: 217 29% 91%;
+    --dark: 223 44% 13%;
+    --btn: 272 17% 33%;
+    --accent: 349 67% 45%;
+    --accent-alt: 349 42% 45%;
+    --gradient: linear-gradient(234.89deg, var(--accent) 7.37%, (var(--btn)) 49.99%, #var(--dark) 87.6%);     
+}
+
+/*Sizes*/
+$base-padding: 25px;
+
+$light: hsl(var(--light));
+$light-alt: hsl(var(--light-alt));
+$dark: hsl(var(--dark));
+$dark-alt: hsl(var(--dark) / 0.9);
+$btn: hsl(var(--btn));
+$btn-alt: hsl(var(--btn) / 0.9);
+$accent: hsl(var(--accent));
+$accent-alt: hsl(var(--accent) / 0.9);
+
+body {
+    background-color: $light;
+    font-family: 'Open Sans';       
+}
+
+button {
+  background: none;
+  outline: none;
+  border: none;
+}
