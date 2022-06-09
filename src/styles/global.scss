@@ -16,7 +16,7 @@ img {
 :root {
     /*Colors*/
     --light: 218 44% 96%;
-    --light-alt: 217 29% 91%;
+    --light-icon: 217 29% 91%;
     --dark: 223 44% 13%;
     --btn: 272 17% 33%;
     --accent: 349 67% 45%;
@@ -28,21 +28,36 @@ img {
 $base-padding: 25px;
 
 $light: hsl(var(--light));
-$light-alt: hsl(var(--light-alt));
+$light-alt: hsl(var(--light) / 0.9); 
+$light-icon: hsl(var(--light-icon));
 $dark: hsl(var(--dark));
 $dark-alt: hsl(var(--dark) / 0.9);
 $btn: hsl(var(--btn));
 $btn-alt: hsl(var(--btn) / 0.9);
 $accent: hsl(var(--accent));
-$accent-alt: hsl(var(--accent) / 0.9);
+$accent-alt: hsl(var(--accent-alt) / 0.9);
 
 body {
     background-color: $light;
-    font-family: 'Open Sans';       
+    color: $dark-alt;
+    font-family: 'Open Sans';   
 }
 
 button {
   background: none;
   outline: none;
   border: none;
+}
+
+a {
+  text-decoration: none; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: $dark;
+    color: $light-alt;
+  }
+  
 }

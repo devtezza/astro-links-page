@@ -66,8 +66,9 @@ import {Icon} from 'astro-icon';
     }
 
     .bottom {
-        height: $bottom-height;
+        // height: $bottom-height;
         padding: $base-padding;
+        padding-bottom: $base-padding / 3;
         display: flex;
         justify-content: flex-end;       
         // border: 1px solid red;
@@ -85,14 +86,19 @@ import {Icon} from 'astro-icon';
         justify-content: space-between;
     }
 
-    h1 {        
+    h1 {
+        // border: 1px solid green;        
         font-size: convert-pixels-to-rem(40px);
         font-weight: 600;
         text-align: center;
     }
 
     [astro-icon] {
-        fill: $dark-alt;
+        color: $dark-alt;
+
+        @media(prefers-color-scheme: dark) {
+            color: $light-icon;
+        }
     }
     
 </style>
