@@ -1,0 +1,55 @@
+---
+import {Icon} from "astro-icon";
+const year = new Date().getFullYear();
+---
+
+<footer>
+    <div class="social-icons">
+        <a href="https://github.com/devtezza">
+            <Icon name="bi:github" width="24"/>
+        </a>
+        <a href="https://www.linkedin.com/in/devtezza/">
+            <Icon name="bi:linkedin" width="24"/>
+        </a>
+        <a href="https://www.instagram.com/">
+            <Icon name="bi:instagram" width="24"/>
+        </a>
+        <a href="https://twitter.com/">
+            <Icon name="bi:twitter" width="24"/>
+        </a>
+        <a href="https://www.tiktok.com/">
+            <Icon name="bi:tiktok" width="24"/>
+        </a>
+    </div>
+    <div class="copyright">
+        <p>Copyright © <span>{year}</span> Your Name</p>        
+    </div>
+</footer>
+
+<style lang="scss">
+    @use '../styles/functions' as *;
+    @use '../styles/global' as *;
+    footer {
+        padding-inline: $base-padding;
+        padding-top: $base-padding / 2;        
+    }
+
+    .social-icons {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+
+    [astro-icon] {
+        color: $dark;
+
+        @media(prefers-color-scheme: dark) {
+            color: $light-icon;
+        }
+    }
+
+    .copyright {
+        text-align: center;
+        font-size: 85%;
+    }
+</style>
