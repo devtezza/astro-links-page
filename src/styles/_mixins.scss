@@ -1,0 +1,41 @@
+@mixin media-dark {
+    @media(prefers-color-scheme: dark) {
+        @content;
+    }
+}
+
+@mixin media-sm {
+    @media(min-width: 400px) {
+        @content;
+    }
+}
+
+@mixin media-md {
+    @media(min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin media-lg {
+    @media(min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin media-xl {
+    @media(min-width: 1440px) {
+        @content;
+    }
+}
+
+@mixin media-max {
+    @media(min-width: 1600px) {
+        @content;
+    }
+}
+
+@mixin media-height {
+    @media(min-height: 712px) {
+        @content;
+    }
+}
