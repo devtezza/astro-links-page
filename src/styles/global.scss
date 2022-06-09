@@ -1,4 +1,5 @@
 @use 'functions' as *;
+@use 'mixins' as *;
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Passion+One:wght@400;700&display=swap');
 
 *,
@@ -17,7 +18,7 @@ img {
     /*Colors*/
     --light: 218 44% 96%;
     --light-icon: 217 29% 91%;
-    --dark: 223 44% 13%;
+    --dark: 223 44% 10%;
     --btn: 272 17% 33%;
     --accent: 349 67% 45%;
     --accent-alt: 349 42% 45%;
@@ -26,6 +27,8 @@ img {
 
 /*Sizes*/
 $base-padding: 25px;
+$md-padding: 45px;
+$lg-padding: 140px;
 
 $light: hsl(var(--light));
 $light-alt: hsl(var(--light) / 0.9); 
@@ -37,10 +40,17 @@ $btn-alt: hsl(var(--btn) / 0.9);
 $accent: hsl(var(--accent));
 $accent-alt: hsl(var(--accent-alt) / 0.9);
 
+html {
+  // background-color: hsl(var(--dark) / 0.1);
+  background-color: white;
+}
+
 body {
     background-color: $light;
     color: $dark-alt;
-    font-family: 'Open Sans';   
+    font-family: 'Open Sans';
+    width: min(100%, 1600px);
+    margin-inline: auto;      
 }
 
 button {
@@ -54,10 +64,17 @@ a {
 }
 
  
-@media (prefers-color-scheme: dark) {
+@include media-dark {
+  
+  html {
+    // background-color: $dark-alt;
+    background-color: hsl(var(--dark) / 0.95);
+  }
+
   body {
     background-color: $dark;
     color: $light-alt;
+    
   }
   
 }

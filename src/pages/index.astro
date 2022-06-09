@@ -1,5 +1,5 @@
 ---
-import Hero from "../components/Header.astro";
+import Header from "../components/Header.astro";
 import Links from "../components/Links.astro";
 import Footer from "../components/Footer.astro";
 let title = 'Links Page';
@@ -14,12 +14,20 @@ let title = 'Links Page';
 		</style> 
 	</head>
 	<body>
-	<Hero />
-	<Links />
-	<Footer />	
+		<div class="container">
+		<Header client:visible/>
+		<Links />
+		<Footer />	
+		</div>	
 	</body>
 </html>
 
 <style lang="scss">
-	
+	.container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: max(100vh, 600px);		
+		margin-inline: auto; 
+	}
 </style>

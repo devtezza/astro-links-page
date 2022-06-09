@@ -13,6 +13,7 @@
 
 <style lang="scss">
      @use '../styles/functions' as *;
+     @use '../styles/mixins' as *;
      @use '../styles/global' as *;
 
     .links {
@@ -22,7 +23,7 @@
         padding: $base-padding;
         display: grid;
         grid-template-rows: auto;
-        gap: $base-padding;
+        gap: calc($base-padding * 0.6);
         
         a {
             display: flex;                   
@@ -33,10 +34,68 @@
             justify-content: center;
             align-items: center;
             border-radius: convert-pixels-to-rem(10px);
-            min-height: convert-pixels-to-rem(54px);
+            min-height: convert-pixels-to-rem(42px);
 
             &.featured {
                 background-color: $accent;
+            }            
+        }
+
+        @include media-dark {                
+
+            a {
+                background-color: $btn-alt;                
+                color: $light-alt;
+                
+                &.featured {
+                    background-color: $accent-alt;
+                }
+            }
+                
+        }
+
+        @include media-height {
+            gap: $base-padding;
+
+            a {
+                min-height: convert-pixels-to-rem(54px);
+            }
+        }
+
+        @include media-sm {
+            a {
+                width: min(100%, 400px);
+                margin-inline: auto;
+            }
+        }
+
+        @include media-md {
+            grid-template-columns: repeat(2, 1fr);
+            padding-inline: $md-padding;
+            padding-block: 1rem;
+
+            a {
+                width: 100%;
+            }
+        }
+
+        @include media-lg {            
+            padding-inline: $lg-padding;
+            max-width: calc(800px + $base-padding + (2 * $lg-padding));
+            margin-inline: auto;
+            a {
+                width: min(100%, 400px);                
+            }
+        }
+
+        @include media-xl {
+            grid-template-columns: repeat(3, 1fr);
+            min-width: 100%;
+            margin: 0;
+            gap: convert-pixels-to-rem(60px);
+
+            a {
+                min-height: convert-pixels-to-rem(74px);
             }
         }
     }
@@ -51,15 +110,5 @@
         padding: 0;
         position: absolute;
         width: 1px; 
-    } 
-
-    @media(prefers-color-scheme: dark) {
-        .links {
-
-            a {
-                background-color: $btn-alt;
-                color: $light-alt;
-            }
-        }
-    }
+    }  
 </style>

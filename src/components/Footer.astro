@@ -28,22 +28,39 @@ const year = new Date().getFullYear();
 
 <style lang="scss">
     @use '../styles/functions' as *;
+    @use '../styles/mixins' as *;
     @use '../styles/global' as *;
     footer {
         padding-inline: $base-padding;
-        padding-top: $base-padding / 2;        
+        padding-top: calc($base-padding / 2);
+        
+        @include media-md {
+            padding-bottom: 1rem;
+        }
     }
 
     .social-icons {
         display: flex;
         justify-content: space-between;
         margin-bottom: 1rem;
+
+        @include media-sm {
+          
+            width: min(100%, convert-pixels-to-rem(400px));
+            margin-inline: auto;
+          
+        }
+
+        
+        @include media-md {
+            width: max(convert-pixels-to-rem(300px));
+        }
     }
 
     [astro-icon] {
         color: $dark;
 
-        @media(prefers-color-scheme: dark) {
+        @include media-dark {
             color: $light-icon;
         }
     }

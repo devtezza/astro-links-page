@@ -1,5 +1,7 @@
 ---
 import {Icon} from 'astro-icon';
+// let isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+// console.log(matched);
 ---
 
 <header>
@@ -19,10 +21,14 @@ import {Icon} from 'astro-icon';
 
 <style lang="scss">
     @use '../styles/functions' as *;
+    @use '../styles/mixins' as *;
     @use '../styles/global' as *;
     $top-height: 15vh;
+    $top-height-md: min(25vh, 250px);
     $bottom-height: 10vh;
     $avatar-dimensions: convert-pixels-to-rem(112px);
+    $avatar-dimensions-md: convert-pixels-to-rem(180px);
+    $avatar-dimensions-lg: convert-pixels-to-rem(230px);
     $avatar-vertical-offset: 23%;
     $theme-switcher-width: convert-pixels-to-rem(76px);     
     
@@ -35,6 +41,10 @@ import {Icon} from 'astro-icon';
         background-size: cover;      
         background-position: center left;
         background-repeat: no-repeat;
+
+        @include media-md {
+            height: $top-height-md;
+        }
         // img {
         //     object-fit: cover;
         //     // aspect-ratio: 3 / 1;
@@ -47,13 +57,25 @@ import {Icon} from 'astro-icon';
     .avatar {        
         position: absolute;
         width: $avatar-dimensions;
-        height: $avatar-dimensions;        
+        height: $avatar-dimensions;       
         left: 50%;
         bottom: 0;
         transform: translate(-50%, $avatar-vertical-offset);
         border-radius: 50%;
         background-image: url(images/avatar.png);
         background-size: cover;
+
+        @include media-md {
+            width: $avatar-dimensions-md;
+            height: $avatar-dimensions-md;
+        }
+
+        @include media-xl {
+            width: $avatar-dimensions-lg;
+            height: $avatar-dimensions-lg;
+            left: $lg-padding;
+            transform: translate(-15%, $avatar-vertical-offset);
+        }
     }
 
     .avatar::after {
@@ -62,22 +84,39 @@ import {Icon} from 'astro-icon';
         left: 50%;
         bottom: 0;
         transform: translate(-50%, 1.5rem);       
-        // transform: translate(-50%, 1rem);
+        
+        @include media-md {
+            font-size: convert-pixels-to-rem(21px);
+            transform: translate(-50%, 2rem); 
+        }
     }
 
     .bottom {
         // height: $bottom-height;
         padding: $base-padding;
-        padding-bottom: $base-padding / 3;
+        padding-bottom: calc($base-padding) / 3;
         display: flex;
         justify-content: flex-end;       
         // border: 1px solid red;
+
+        @include media-md {
+            padding-inline: $md-padding;
+            padding-top: $md-padding;            
+        }
+
+        @include media-xl {
+            padding-inline: $lg-padding;            
+        }
     }
 
-    .username {
-        display: block;
-        margin-top: $avatar-vertical-offset;
-    }
+    // .username {
+    //     display: block;
+    //     margin-top: $avatar-vertical-offset;
+
+    //     @include media-md {
+    //         font-size: 2rem;
+    //     }
+    // }
 
     .theme-switcher {
         display: flex;
@@ -88,15 +127,23 @@ import {Icon} from 'astro-icon';
 
     h1 {
         // border: 1px solid green;        
-        font-size: convert-pixels-to-rem(40px);
+        font-size: convert-pixels-to-rem(30px);
         font-weight: 600;
         text-align: center;
+
+        @include media-height {
+            font-size: convert-pixels-to-rem(40px);
+        }
+
+        @include media-md {
+            font-size: convert-pixels-to-rem(95px);           
+        }
     }
 
     [astro-icon] {
         color: $dark-alt;
 
-        @media(prefers-color-scheme: dark) {
+        @include media-dark {
             color: $light-icon;
         }
     }
