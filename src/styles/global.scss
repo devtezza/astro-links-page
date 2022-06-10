@@ -45,11 +45,11 @@ html {
   background-color: white;
 }
 
-body {
+body {    
     background-color: $light;
     color: $dark-alt;
     font-family: 'Open Sans';
-    width: min(100%, 1600px);
+    width: min(100%, 1600px);    
     margin-inline: auto;      
 }
 
@@ -73,8 +73,7 @@ a {
 
   body {
     background-color: $dark;
-    color: $light-alt;
-    
+    color: $light-alt;    
   }
   
 }

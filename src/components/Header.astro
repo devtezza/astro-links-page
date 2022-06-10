@@ -89,6 +89,11 @@ import {Icon} from 'astro-icon';
             font-size: convert-pixels-to-rem(21px);
             transform: translate(-50%, 2rem); 
         }
+
+        @include media-lg {
+            transform: translate(-50%, 2.5rem);
+        }
+        
     }
 
     .bottom {
@@ -136,7 +141,7 @@ import {Icon} from 'astro-icon';
         }
 
         @include media-md {
-            font-size: convert-pixels-to-rem(95px);           
+            font-size: convert-pixels-to-rem(82px);           
         }
     }
 
